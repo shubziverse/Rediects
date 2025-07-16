@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    <h1>🔗 Update Redirect URL</h1>
+
+    {% if request.method == 'POST' %}
+        <div class="toast">✅ URL updated successfully</div>
+    {% endif %}
+
+    <form method="POST">
+        <input type="text" name="url" value="{{ current_url }}" required>
+        <input type="submit" value="Update URL">
+    </form>
+
+    {% if info %}
+    <p><b>Last Updated:</b> {{ info.updated_at.strftime('%Y-%m-%d %H:%M:%S') if info.updated_at else 'N/A' }}</p>
+    <p><b>Updated By:</b> {{ info.last_updated_by or 'N/A' }}</p>
+    {% endif %}
+
+    <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+</div>
+
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
+</body>
+</html>

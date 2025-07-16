@@ -1,0 +1,31 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Flask dotenv
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode settings (optional)
+.vscode/
+
+# Logs
+*.log
+
+# Render deployment cache (optional but safe)
+*.sqlite3
+*.db
+
+# OS-specific
+*.swp

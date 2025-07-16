@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+:root {
+    --bg-color: #f4f6f9;
+    --text-color: #111;
+    --card-bg: #fff;
+    --input-bg: #fff;
+    --border-color: #ccc;
+    --button-bg: #007bff;
+    --button-hover: #0056b3;
+    --success-bg: #28a745;
+    --success-hover: #218838;
+    --logout-color: #dc3545;
+}
+
+.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #f0f0f0;
+    --card-bg: #2b2b2b;
+    --input-bg: #3a3a3a;
+    --border-color: #555;
+    --button-bg: #1e88e5;
+    --button-hover: #1565c0;
+    --success-bg: #43a047;
+    --success-hover: #2e7d32;
+    --logout-color: #f44336;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+h1, h2 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.7rem 0 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--button-hover);
+}
+
+.logout {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--logout-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.logout:hover {
+    text-decoration: underline;
+}
+
+.toast {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4caf50;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    animation: fadeInOut 3s ease;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; top: -20px; }
+    10% { opacity: 1; top: 0px; }
+    90% { opacity: 1; top: 0px; }
+    100% { opacity: 0; top: -20px; }
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
